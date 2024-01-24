@@ -2,92 +2,60 @@
     "type": "AirportsCollection",
     "airports": [
         {
-            "text": "FRU",
+            "text": "GRU",
             "size": 1.0,
-            "country": "Kyrgyzstan",
-            "city": "Bishkek",
-            "lat": "42.85",
-            "lng": "74.583333333"
+            "country": "Brazil",
+            "city": "São Paulo",
+            "lat": "-23.435556",
+            "lng": "-46.473056"
         },
         {
-            "text": "TAS",
+            "text": "BSB",
             "size": 1.0,
-            "country": "Uzbekistan",
-            "city": "Tashkent",
-            "lat": "41.266666666667",
-            "lng": "69.366666666667"
+            "country": "Brazil",
+            "city": "Brasília",
+            "lat": "-15.869167",
+            "lng": "-47.920833"
         },
         {
-            "text": "ALA",
+            "text": "MIA",
             "size": 1.0,
-            "country": "Kazakhstan",
-            "city": "Almaty",
-            "lat": "43.35",
-            "lng": "75.033333333333"
+            "country": "United States",
+            "city": "Miami",
+            "lat": "25.795865",
+            "lng": "-80.287046"
         },
         {
-            "text": "ICN",
+            "text": "DIJ",
             "size": 1.0,
-            "country": "South Korea",
-            "city": "Incheon",
-            "lat": "37.472222222222",
-            "lng": "126.60833333333"
+            "country": "France",
+            "city": "Dijon (Borgonha)",
+            "lat": "47.26889",
+            "lng": "5.09"
         },
         {
-            "text": "KJA",
+            "text": "CDG",
             "size": 1.0,
-            "country": "Russia",
-            "city": "Krasnoyarsk",
-            "lat": "56.05",
-            "lng": "92.9"
+            "country": "France",
+            "city": "Paris",
+            "lat": "49.009722",
+            "lng": "2.547778"
         },
         {
-            "text": "OVB",
+            "text": "FAO",
             "size": 1.0,
-            "country": "Russia",
-            "city": "Novosibirsk",
-            "lat": "55.033333333333",
-            "lng": "83"
+            "country": "Portugal",
+            "city": "Faro",
+            "lat": "37.014425",
+            "lng": "-7.965911"
         },
         {
-            "text": "KUL",
+            "text": "LIS",
             "size": 1.0,
-            "country": "Malaysia",
-            "city": "Kuala-Lumpur",
-            "lat": "3.11666666666",
-            "lng": "101.7"
-        },
-        {
-            "text": "SIN",
-            "size": 1.0,
-            "country": "Singapore",
-            "city": "Singapore",
-            "lat": "1.2916666666667",
-            "lng": "103.85"
-        },
-        {
-            "text": "DPS",
-            "size": 1.0,
-            "country": "Indonesia",
-            "city": "Denpasar",
-            "lat": "-8.75",
-            "lng": "115.16666666667"
-        },
-        {
-            "text": "DMK",
-            "size": 1.0,
-            "country": "Thailand",
-            "city": "Bangkok",
-            "lat": "13.9255",
-            "lng": "100.5923"
-        },
-        {
-            "text": "BKK",
-            "size": 1.0,
-            "country": "Thailand",
-            "city": "",
-            "lat": "13.6900",
-            "lng": "100.7501"
+            "country": "Portugal",
+            "city": "Lisboa",
+            "lat": "38.774167",
+            "lng": "-9.134167"
         }
     ]
 }
