@@ -64,11 +64,11 @@ function init() {
   dLight.position.set(-800, 2000, 400);
   camera.add(dLight);
 
-  var dLight1 = new DirectionalLight('#0cc', 1);
+  var dLight1 = new DirectionalLight('fff', 1);
   dLight1.position.set(-200, 500, 200);
   camera.add(dLight1);
 
-  var dLight2 = new PointLight('#0cc', 0.5);
+  var dLight2 = new PointLight('#fff', 0.5);
   dLight2.position.set(-200, 500, 200);
   camera.add(dLight2);
 
