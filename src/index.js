@@ -20,13 +20,17 @@ import countries from "./files/globe-data-min.json";
 import travelHistory from "./files/my-flights.json";
 import airportHistory from "./files/my-airports.json";
 var renderer, camera, scene, controls;
-let mouseX = 0;
-let mouseY = 0;
+// let mouseX = 0;
+// let mouseY = 0;
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
 var Globe;
 
-var canvas = document.getElementById('map-container');
+const canvas = document.getElementById('map-container');
+
+canvas.style.width = '100%';
+canvas.style.height = '100%';
+
 
 init();
 initGlobe();
@@ -68,14 +72,14 @@ function init() {
   dLight2.position.set(-200, 500, 200);
   camera.add(dLight2);
 
-  camera.position.z = 400;
+  camera.position.z = 290;
   camera.position.x = 0;
   camera.position.y = 0;
 
   scene.add(camera);
 
   // Additional effects
-  scene.fog = new Fog('#0cc', 400, 2000);
+  // scene.fog = new Fog('#0cc', 400, 2000);
 
   // Helpers
   // const axesHelper = new AxesHelper(800);
@@ -87,14 +91,15 @@ function init() {
 
   // Initialize controls
   controls = new OrbitControls(camera, renderer.domElement);
-  controls.enableDamping = true;
+  controls.enableDamping = false;
   controls.dynamicDampingFactor = 0.01;
+  controls.enableRotate = false;
   controls.enablePan = false;
   controls.enableZoom = false;
+  controls.autoRotate = false;
   controls.minDistance = 200;
   controls.maxDistance = 500;
   controls.rotateSpeed = 0.8;
-  controls.autoRotate = false;
 
   controls.minPolarAngle = Math.PI / 3.5;
   controls.maxPolarAngle = Math.PI - Math.PI / 3;
@@ -209,7 +214,7 @@ function animate() {
 
   // Rotate the globe
   Globe.rotation.y += -0.003
-  console.log(camera.rotation)
+  // console.log(camera.rotation)
 
   // Update the scene
   renderer.render(scene, camera);
