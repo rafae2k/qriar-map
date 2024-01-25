@@ -6,49 +6,37 @@ import {
   AmbientLight,
   DirectionalLight,
   Color,
-  Fog,
-  PointLight,
-  // Euler,
-  // AxesHelper,
-  // DirectionalLightHelper,
-  // CameraHelper,
-  // SphereGeometry,
+  PointLight
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-// import { createGlowMesh } from "three-glow-mesh";
 import countries from "./files/globe-data-min.json";
 import travelHistory from "./files/my-flights.json";
 import airportHistory from "./files/my-airports.json";
+
 var renderer, camera, scene, controls;
-// let mouseX = 0;
-// let mouseY = 0;
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
 var Globe;
 
-const canvas = document.getElementById('map-container');
+const aspectRatio = 1.61803398875
+const container = document.getElementById('map-container');
+const canvas = document.createElement('canvas');
+const pixelRatio = window.devicePixelRatio
 
-canvas.style.width = '100%';
-canvas.style.height = '100%';
-
+container.appendChild(canvas);
 
 init();
 initGlobe();
 onWindowResize();
 animate();
 
-
 // SECTION Initializing core ThreeJS elements
 function init() {
   // Initialize renderer
+  canvas.width = container.innerWidth;
+  canvas.height = container.innerHeight;
   renderer = new WebGLRenderer({ antialias: true, canvas });
-  renderer.setPixelRatio(window.devicePixelRatio);
-  // renderer.setSize(window.innerWidth, window.innerHeight);
-  // renderer.outputEncoding = THREE.sRGBEncoding;
-  // document.body.appendChild(renderer.domElement);
-
-  // renderer.setSize(500, 500)
-  // renderer.setSize(mapContainer.offsetWidth, mapContainer.offsetHeight);
+  renderer.setPixelRatio(pixelRatio);
 
   // Initialize scene, light
   scene = new Scene();
@@ -57,7 +45,7 @@ function init() {
 
   // Initialize camera, light
   camera = new PerspectiveCamera();
-  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.aspect = container.innerWidth / container.innerHeight
   camera.updateProjectionMatrix();
 
   var dLight = new DirectionalLight(0xffffff, 0.8);
@@ -159,19 +147,6 @@ function initGlobe() {
       .pointRadius(0.05);
   }, 1000);
 
-  // const xEuler = -0.10995641289245754
-  // const yEuler = -0.8097109043738395
-  // const zEuler = -0.10995641289245754
-  // const euler = new Euler(xEuler, yEuler, zEuler, "XYZ");
-
-  // camera.setRotationFromEuler(euler);
-  // camera.matrixWorldNeedsUpdate = true
-
-  // camera.rotation.y = -0.8097109043738395
-  // camera.rotation.z = -0.10995641289245754
-  // Globe.rotateY(-Math.PI * (5 / 2));
-  // Globe.rotateX(Math.PI / 6);
-  // Globe.rotateZ(-Math.PI / 6);
   Globe.rotation.set(0, 1, 0);
   const globeMaterial = Globe.globeMaterial();
   globeMaterial.color = new Color('#0cc');
@@ -179,42 +154,33 @@ function initGlobe() {
   globeMaterial.emissiveIntensity = 0.1;
   globeMaterial.shininess = 0.7;
 
-  // NOTE Cool stuff
-  // globeMaterial.wireframe = true;
-
   scene.add(Globe);
 }
 
 function onMouseMove(event) {
   mouseX = event.clientX - windowHalfX;
   mouseY = event.clientY - windowHalfY;
-  // console.log("x: " + mouseX + " y: " + mouseY);
 }
 
 function onWindowResize() {
-  const width = canvas.offsetWidth
-  const height = canvas.offsetHeight
-  camera.aspect = width / height;
+  camera.aspect = aspectRatio
+
+  const width = container.clientWidth
+  const height = width / aspectRatio
+
+  canvas.width = width / pixelRatio;
+  canvas.height = height / pixelRatio;
+  canvas.style.width = width + "px";
+  canvas.style.height = height + "px";
+
+  renderer.setSize(width, height, false);
+
   camera.updateProjectionMatrix();
-  windowHalfX = window.innerWidth / 1.5;
-  windowHalfY = window.innerHeight / 1.5;
-  renderer.setSize(width, height);
 }
 
 function animate() {
-  // camera.position.x +=
-  //   Math.abs(mouseX) <= windowHalfX / 2
-  //     ? (mouseX / 2 - camera.position.x) * 0.005
-  //     : 0;
-  // camera.position.y += (-mouseY / 2 - camera.position.y) * 0.005;
-  // camera.lookAt(scene.position);
-  // controls.update();
-  // renderer.render(scene, camera);
-  // requestAnimationFrame(animate);
-
   // Rotate the globe
   Globe.rotation.y += -0.003
-  // console.log(camera.rotation)
 
   // Update the scene
   renderer.render(scene, camera);
