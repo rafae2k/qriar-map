@@ -6,6 +6,7 @@ import {
   AmbientLight,
   DirectionalLight,
   Color,
+  Fog,
   PointLight
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
@@ -14,8 +15,6 @@ import travelHistory from "./files/my-flights.json";
 import airportHistory from "./files/my-airports.json";
 
 var renderer, camera, scene, controls;
-let windowHalfX = window.innerWidth / 2;
-let windowHalfY = window.innerHeight / 2;
 var Globe;
 
 const aspectRatio = 1.61803398875
@@ -40,23 +39,23 @@ function init() {
 
   // Initialize scene, light
   scene = new Scene();
-  scene.add(new AmbientLight("#fff", 0.3));
-  scene.background = new Color('#fff');
+  scene.add(new AmbientLight('white', 0.3));
+  scene.background = new Color('white');
 
   // Initialize camera, light
   camera = new PerspectiveCamera();
   camera.aspect = container.innerWidth / container.innerHeight
   camera.updateProjectionMatrix();
 
-  var dLight = new DirectionalLight(0xffffff, 0.8);
+  var dLight = new DirectionalLight('white', 0.8);
   dLight.position.set(-800, 2000, 400);
   camera.add(dLight);
 
-  var dLight1 = new DirectionalLight('fff', 1);
+  var dLight1 = new DirectionalLight('white', 1);
   dLight1.position.set(-200, 500, 200);
   camera.add(dLight1);
 
-  var dLight2 = new PointLight('#fff', 0.5);
+  var dLight2 = new PointLight('white', 0.5);
   dLight2.position.set(-200, 500, 200);
   camera.add(dLight2);
 
@@ -66,16 +65,8 @@ function init() {
 
   scene.add(camera);
 
-  // Additional effects
-  // scene.fog = new Fog('#0cc', 400, 2000);
+  scene.fog = new Fog('#0cc', 400, 2000);
 
-  // Helpers
-  // const axesHelper = new AxesHelper(800);
-  // // scene.add(axesHelper);
-  // // var helper = new DirectionalLightHelper(dLight);
-  // // scene.add(helper);
-  // // var helperCamera = new CameraHelper(dLight.shadow.camera);
-  // // scene.add(helperCamera);
 
   // Initialize controls
   controls = new OrbitControls(camera, renderer.domElement);
@@ -93,7 +84,6 @@ function init() {
   controls.maxPolarAngle = Math.PI - Math.PI / 3;
 
   window.addEventListener("resize", onWindowResize, false);
-  document.addEventListener("mousemove", onMouseMove);
 }
 
 // SECTION Globe
@@ -109,7 +99,7 @@ function initGlobe() {
     .showAtmosphere(true)
     .atmosphereColor('#0cc')
     .atmosphereAltitude(0.25)
-    .hexPolygonColor((e) => {
+    .hexPolygonColor(() => {
       return "rgba(0,0,0, 1)";
     });
 
@@ -150,16 +140,11 @@ function initGlobe() {
   Globe.rotation.set(0, 1, 0);
   const globeMaterial = Globe.globeMaterial();
   globeMaterial.color = new Color('#0cc');
-  globeMaterial.emissive = new Color('#fff');
+  globeMaterial.emissive = new Color('white');
   globeMaterial.emissiveIntensity = 0.1;
   globeMaterial.shininess = 0.7;
 
   scene.add(Globe);
-}
-
-function onMouseMove(event) {
-  mouseX = event.clientX - windowHalfX;
-  mouseY = event.clientY - windowHalfY;
 }
 
 function onWindowResize() {
