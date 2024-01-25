@@ -126,10 +126,18 @@ function initGlobe() {
         return e.text === "ALA" ? "top" : "right";
       })
       .labelDotRadius(0.3)
-      .labelSize((e) => e.size)
+      .labelSize(1)
       .labelText("city")
-      .labelResolution(6)
-      .labelAltitude(0.01)
+      .labelResolution(10)
+      .labelAltitude((e) => {
+        if (e.city === 'Dijon (Bourgogne)') {
+          return 0.1
+        } else if (e.city === 'Faro') {
+          return 0.1
+        } else {
+          return 0.08
+        }
+      })
       .pointsData(airportHistory.airports)
       .pointColor(() => "#081c3a")
       .pointsMerge(true)
@@ -137,7 +145,7 @@ function initGlobe() {
       .pointRadius(0.05);
   }, 1000);
 
-  Globe.rotation.set(0, 1, 0);
+  Globe.rotation.set(0.3, 1, 0.3);
   const globeMaterial = Globe.globeMaterial();
   globeMaterial.color = new Color('#0cc');
   globeMaterial.emissive = new Color('white');

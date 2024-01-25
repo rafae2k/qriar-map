@@ -5,7 +5,7 @@
             "text": "GRU",
             "size": 1.0,
             "country": "Brazil",
-            "city": "São Paulo",
+            "city": "Sao Paulo",
             "lat": "-23.435556",
             "lng": "-46.473056"
         },
@@ -13,7 +13,7 @@
             "text": "BSB",
             "size": 1.0,
             "country": "Brazil",
-            "city": "Brasília",
+            "city": "Brasilia",
             "lat": "-15.869167",
             "lng": "-47.920833"
         },
@@ -29,7 +29,7 @@
             "text": "DIJ",
             "size": 1.0,
             "country": "France",
-            "city": "Dijon (Borgonha)",
+            "city": "Dijon (Bourgogne)",
             "lat": "47.26889",
             "lng": "5.09"
         },
