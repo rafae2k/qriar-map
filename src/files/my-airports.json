@@ -2,18 +2,10 @@
     "type": "AirportsCollection",
     "airports": [
         {
-            "text": "GRU",
-            "size": 1.0,
-            "country": "Brazil",
-            "city": "Sao Paulo",
-            "lat": "-23.435556",
-            "lng": "-46.473056"
-        },
-        {
             "text": "BSB",
             "size": 1.0,
             "country": "Brazil",
-            "city": "Brasilia",
+            "city": "Brazil",
             "lat": "-15.869167",
             "lng": "-47.920833"
         },
@@ -21,39 +13,23 @@
             "text": "MIA",
             "size": 1.0,
             "country": "United States",
-            "city": "Miami",
+            "city": "United States",
             "lat": "25.795865",
             "lng": "-80.287046"
-        },
-        {
-            "text": "DIJ",
-            "size": 1.0,
-            "country": "France",
-            "city": "Dijon (Bourgogne)",
-            "lat": "47.26889",
-            "lng": "5.09"
         },
         {
             "text": "CDG",
             "size": 1.0,
             "country": "France",
-            "city": "Paris",
+            "city": "France",
             "lat": "49.009722",
             "lng": "2.547778"
-        },
-        {
-            "text": "FAO",
-            "size": 1.0,
-            "country": "Portugal",
-            "city": "Faro",
-            "lat": "37.014425",
-            "lng": "-7.965911"
         },
         {
             "text": "LIS",
             "size": 1.0,
             "country": "Portugal",
-            "city": "Lisboa",
+            "city": "Portugal",
             "lat": "38.774167",
             "lng": "-9.134167"
         }
