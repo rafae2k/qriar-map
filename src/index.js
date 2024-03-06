@@ -126,7 +126,7 @@ function initGlobe() {
         return e.text === "ALA" ? "top" : "right";
       })
       .labelDotRadius(0.3)
-      .labelSize(1)
+      .labelSize(1.5)
       .labelText("city")
       .labelResolution(10)
       .labelAltitude((e) => {
@@ -145,7 +145,7 @@ function initGlobe() {
       .pointRadius(0.05);
   }, 1000);
 
-  Globe.rotation.set(0.3, 1, 0.3);
+  Globe.rotation.set(0.2, 1.4, 0.2);
   const globeMaterial = Globe.globeMaterial();
   globeMaterial.color = new Color('#0cc');
   globeMaterial.emissive = new Color('white');
