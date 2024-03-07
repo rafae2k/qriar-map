@@ -126,7 +126,7 @@ function initGlobe() {
         return e.text === "ALA" ? "top" : "right";
       })
       .labelDotRadius(0.3)
-      .labelSize(1.5)
+      .labelSize(2.5)
       .labelText("city")
       .labelResolution(10)
       .labelAltitude((e) => {
